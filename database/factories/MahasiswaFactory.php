@@ -24,8 +24,6 @@ class MahasiswaFactory extends Factory
             'jurusan' => $this->faker->randomElement(['Teknik Informatika', 'Teknik Mesin', 'Teknik Industri', 'Teknik Pangan', 'Teknik Planologi']),
             'no_handphone' => $this->faker->phoneNumber(),
             'tanggal_lahir' => $this->faker->date(),
-
-            
         ];
     }
 }

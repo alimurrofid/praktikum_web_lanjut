@@ -24,9 +24,14 @@
                         <div class="form-group"> <label for="email">email</label> <input type="text" name="email"
                                 class="form-control" id="email" value="{{ $mahasiswa->email }}" aria-describedby="email">
                         </div>
-                        <div class="form-group"> <label for="kelas">kelas</label> <input type="kelas" name="kelas"
-                                class="form-control" id="kelas" value="{{ $mahasiswa->kelas }}"
-                                aria-describedby="kelas"> </div>
+                        <div class="form-group">
+                            <label for="kelas">kelas</label>
+                            <select name="kelas" class="form-control" id="kelas">
+                                @foreach ($kelas as $kls)
+                                    <option value="{{$kls->id}}" {{ $mahasiswa->kelas_id == $kls->id ? 'selected' : '' }}>{{$kls->nama_kelas}}</option>
+                                @endforeach
+                            </select>
+                            </div>
                         <div class="form-group">
                             <label for="jurusan">jurusan</label>
                             <input type="jurusan" name="jurusan" class="form-control" id="jurusan" value="{{ $mahasiswa->jurusan }}" aria-describedby="jurusan">

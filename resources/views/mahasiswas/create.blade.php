@@ -25,7 +25,12 @@
                             <label for="email">email</label> <input type="email" name="email" class="form-control" id="email" aria-describedby="email">
                         </div>
                         <div class="form-group">
-                            <label for="kelas">kelas</label> <input type="kelas" name="kelas" class="form-control" id="kelas" aria-describedby="password">
+                            <label for="kelas">kelas</label> 
+                            <select name="kelas" class="form-control" id="kelas">
+                                @foreach ($kelas as $kls)
+                                    <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="jurusan">jurusan</label> <input type="jurusan" name="jurusan" class="form-control" id="jurusan" aria-describedby="jurusan">
