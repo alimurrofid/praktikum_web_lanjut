@@ -15,39 +15,16 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
 
-
-        //menampilkan data dengan pagination dan pencarian
-        // $search = $request->input('search');
-        // $mahasiswas = Mahasiswa::where('nama', 'like', "%$search%")
-        //                        ->paginate(5);
-
-        // return view('mahasiswas.index', compact('mahasiswas'));
-        // ====================================================================================================
-        if ($request->has('search')) {
-            $mahasiswas = Mahasiswa::where('nama', 'like', "%{$request->search}%")
-                                    ->paginate(5);
+        if($request->has('search')) {
+            $mahasiswa = Mahasiswa::where('nama','Like','%'.$request->search.'%')->paginate(10);
+        } else {
+            $mahasiswa = Mahasiswa::with('kelas')->get();
+            $mahasiswa = Mahasiswa::orderBy('id', 'desc')->paginate(10);
         }
 
-        $mahasiswas = Mahasiswa::with('kelas')->get();
-        $paginate = Mahasiswa::orderBy('nim', 'asc')->paginate(5);
-
-        return view('mahasiswas.index',  ['mahasiswas' => $mahasiswas, 'paginate' => $paginate]);
+        return view('mahasiswas.index', ['mahasiswa' => $mahasiswa, 'paginate' => $mahasiswa]);
     }
-        // ====================================================================================================
-        // menampilkan data dengan searching dan paginator
-    //     if ($request->get('search')) {
-    //         $mahasiswas = Mahasiswa::where('nama', 'like', "%{$request->search}%")
-    //             ->paginate(5);
-    //     } else {
-    //         $mahasiswas = Mahasiswa::paginate(5);
-    //     }
-
-    //     $mahasiswas = Mahasiswa::with('kelas')->get();
-    //     $paginate = Mahasiswa::orderBy('nim', 'asc')->paginate(5);
-
-    //     return view('mahasiswas.index', ['mahasiswas' => $mahasiswas, 'paginate' => $paginate]);
-    // }
-
+       
     /**
      * Show the form for creating a new resource.
      */
