@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('semester', 25);
             $table->timestamps();
         });
+
+        
     }
 
     /**

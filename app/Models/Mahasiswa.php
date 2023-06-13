@@ -10,21 +10,21 @@ class Mahasiswa extends Model
 {
     use HasFactory;
  
-    protected $table = 'mahasiswas'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
-    protected $primaryKey = 'nim'; // Memanggil isi DB Dengan primarykey
-    protected $fillable = [
-        'nim',
-        'nama',
-        'email',
-        'kelas',
-        'jurusan',
-        'no_handphone',
-        'tanggal_lahir'
-    ];
+    // protected $table = 'mahasiswa'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
+    // protected $primaryKey = 'nim'; // Memanggil isi DB Dengan primarykey
+    protected $guarded = 'id';
 
 
     public function kelas()
     {
         return $this->belongsTo(Kelas::class);
     }
+
+    
+    public function matakuliah()
+    {
+        // define the relationship
+        return $this->belongsToMany(MataKuliah::class,'mahasiswa_matakuliah','mahasiswa_id','mata_kuliah_id')->withPivot('nilai');
+    }
+
 }
