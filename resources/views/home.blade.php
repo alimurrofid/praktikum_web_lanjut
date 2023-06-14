@@ -22,7 +22,8 @@
                             <tr><th>Email</th><th>:</th><td>{{$user->email}}</td></tr>
                             <tr><th>Created At</th><th>:</th><td>{{$user->created_at}}</td></tr>
                         </table>
-                        <a href="/articles/create" class="btn btn-primary">Create New Article</a>
+                        <a href="{{route('articles.index')}}" class="btn btn-primary">Article</a>
+                        
                     </div>
                 </div>
             </div>
