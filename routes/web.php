@@ -23,4 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/articles', ArticleController::class);
-// Route::get('/articles/create', [ArticleController::class, 'create']);
+Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);

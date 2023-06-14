@@ -28,7 +28,8 @@
                                             <p>{{$article->content}}</p>
                                             {{-- menampilkan tombol edit --}}
                                             <a href="/articles/{{$article->id}}/edit" class="btn btn-warning">Edit</a>
-                                            {{-- menampilkan tombol delete --}}
+                                            {{-- menampilkan tombol cetak PDF --}}
+                                            <a href="/article/cetak_pdf" class="btn btn-danger">Cetak PDF</a>
                                         </div>
                                         @endforeach
                                     </div>
