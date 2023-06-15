@@ -48,6 +48,8 @@
                         </tr>
                         @endforeach 
                     </table>
+                    {{-- <a href="{{route('mahasiswa.cetak_pdf')}}" class="btn btn-danger d-flex justify-content-center">Cetak PDF</a> --}}
+                    <a href="{{route('mahasiswa.cetak_pdf', $mahasiswa->nim)}}" class="btn btn-danger d-flex justify-content-center">Cetak PDF</a>
                     <a href="{{ route('mahasiswa.index') }}" class="btn btn-success mt-3">Kembali</a>
                 </div>
             </div>

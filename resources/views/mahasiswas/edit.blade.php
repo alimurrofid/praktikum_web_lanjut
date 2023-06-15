@@ -13,13 +13,16 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('mahasiswa.update', $mahasiswa->nim) }}" id="myForm"> @csrf
+                    <form method="post" action="{{ route('mahasiswa.update', $mahasiswa->nim) }}" id="myForm" enctype="multipart/form-data"> @csrf
                         @method('PUT')
                         <div class="form-group"> <label for="nim">nim</label> <input type="text" name="nim"
                                 class="form-control" id="nim" value="{{ $mahasiswa->nim }}" aria-describedby="nim">
                         </div>
                         <div class="form-group"> <label for="nama">nama</label> <input type="text" name="nama"
                                 class="form-control" id="nama" value="{{ $mahasiswa->nama }}" aria-describedby="nama">
+                        </div>
+                        <div class="form-group"> <label for="image">foto</label> <input type="file" name="image"
+                                class="form-control" id="image" value="{{ $mahasiswa->image }}" aria-describedby="image">
                         </div>
                         <div class="form-group"> <label for="email">email</label> <input type="text" name="email"
                                 class="form-control" id="email" value="{{ $mahasiswa->email }}" aria-describedby="email">

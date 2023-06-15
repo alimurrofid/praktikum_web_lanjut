@@ -14,14 +14,24 @@ class MahasiswaMatakuliahSeeder extends Seeder
      */
     public function run(): void
     {
-        $mahasiswa_matakuliah = [
-            [
-                'mahasiswa_id' => 1,
-                'mata_kuliah_id' => 1,
-                'nilai' => 89
-            ]
-        ];
+        // $mahasiswa_matakuliah = [
+        //     [
+        //         'mahasiswa_id' => 1,
+        //         'mata_kuliah_id' => 1,
+        //         'nilai' => 89
+        //     ]
+        // ];
 
-        DB::table('mahasiswa_matakuliah')->insert($mahasiswa_matakuliah);
+        // DB::table('mahasiswa_matakuliah')->insert($mahasiswa_matakuliah);
+
+        $scoreCount = 100;
+        $scoreOptions = ['A', 'B', 'C', 'D', 'E'];
+        for ($i = 0; $i < $scoreCount; $i++) {
+            DB::table('mahasiswa_matakuliah')->insert([
+                'mahasiswa_id' => rand(1, 20),
+                'mata_kuliah_id' => rand(1, 4),
+                'nilai' => array_rand($scoreOptions),
+            ]);
+        }
     }
 }
